@@ -1,0 +1,22 @@
+/* error-404.css - Custom layout styling for the 404 dead end page */
+.error-hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 140px var(--space-md) var(--space-xl);
+}
+
+.error-code {
+  font-family: var(--font-heading);
+  font-size: clamp(5rem, 10vw + 2rem, 10rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--space-xs);
+}

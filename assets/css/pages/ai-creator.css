@@ -1,0 +1,29 @@
+/* ai-creator.css - AI workflow tools styling details */
+.ai-hero {
+  padding: 140px 0 60px;
+}
+
+.ai-usecase-card {
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.ai-pipeline-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.ai-pipeline-node {
+  padding: var(--space-md);
+  border: 1px dashed var(--accent);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.ai-pipeline-arrow {
+  text-align: center;
+  color: var(--accent-secondary);
+  font-size: 1.5rem;
+}

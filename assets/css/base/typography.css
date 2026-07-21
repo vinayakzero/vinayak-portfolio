@@ -1,0 +1,83 @@
+/* typography.css - Font Styles and Type Scale with Inter & Space Grotesk */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* Typography Utilities & Scale */
+h1, .h1 {
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h2, .h2 {
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h3, .h3 {
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h4, .h4 {
+  font-size: clamp(1.25rem, 1.5vw + 0.75rem, 1.50rem);
+  font-weight: 600;
+}
+
+.body-lg {
+  font-size: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+  font-weight: 400;
+}
+
+.body-md, body {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.body-sm, .caption {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent-primary);
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+}
+
+/* Styled Paragraphs & Accents */
+.text-gradient-accent {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-white {
+  background: linear-gradient(180deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lead {
+  font-size: clamp(1.125rem, 1vw + 0.875rem, 1.25rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

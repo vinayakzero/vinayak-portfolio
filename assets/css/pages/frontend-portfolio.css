@@ -1,0 +1,29 @@
+/* frontend-portfolio.css - Front-End specific page styles */
+.frontend-hero {
+  padding: 140px 0 60px;
+}
+
+.tech-badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.tech-badge-card {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--glass-border);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  transition: border-color var(--transition-normal), transform var(--transition-normal);
+}
+
+.tech-badge-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}

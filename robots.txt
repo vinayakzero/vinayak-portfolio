@@ -1,0 +1,5 @@
+# robots.txt for Vinayak Vallabh Rai Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://vinayak-rai.github.io/sitemap.xml

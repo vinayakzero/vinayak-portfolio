@@ -1,0 +1,24 @@
+/* experience.css - Spacing overrides and certificate grids matching old portfolio */
+.experience-hero {
+  padding: 140px 0 60px;
+}
+
+.experience-block {
+  margin-bottom: var(--space-3xl);
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.role-achievement-list {
+  padding-left: var(--space-lg);
+  list-style-type: square;
+}
+
+.role-achievement-list li {
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+}

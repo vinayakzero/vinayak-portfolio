@@ -1,0 +1,58 @@
+/* grid.css - Grid System */
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* Grid Responsive Breakpoints (12 columns system or columns mapping) */
+@media (min-width: 576px) {
+  .grid-cols-sm-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .grid-gap-lg { gap: var(--space-lg); }
+  .grid-cols-md-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-cols-md-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 992px) {
+  .grid-cols-lg-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-cols-lg-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1200px) {
+  .grid-gap-xl { gap: var(--space-xl); }
+  .grid-cols-xl-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Feature grid layouts */
+.grid-featured-left {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 992px) {
+  .grid-featured-left {
+    grid-template-columns: 1.6fr 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.grid-featured-right {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 992px) {
+  .grid-featured-right {
+    grid-template-columns: 1fr 1.6fr;
+    gap: var(--space-xl);
+  }
+}

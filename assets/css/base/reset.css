@@ -1,0 +1,79 @@
+/* reset.css - Modern CSS Reset with theme transitions */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Typography elements reset */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+p, li, figcaption {
+  color: var(--text-secondary);
+}
+
+/* Media resets */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  border: 0;
+}
+
+/* Form resets */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* List resets */
+ul, ol {
+  list-style: none;
+}
+
+/* Link resets */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+}

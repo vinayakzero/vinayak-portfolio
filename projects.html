@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Hub — Vinayak Vallabh Rai</title>
+  <meta name="description" content="Browse creative and development projects by Vinayak Vallabh Rai, featuring documentary films, front-end web development, and AI tools.">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages/projects.css">
+  <script>
+    const theme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper" id="preloader">
+    <div class="loader-container">
+      <div class="loader-logo">VINAYAK<span>V.R.</span></div>
+      <div class="loader-bar-bg">
+        <div class="loader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="./" class="logo">
+        VINAYAK<span>V.R.</span>
+        <div class="logo-dot"></div>
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <!-- Actions Block (Theme toggle + hamburger) -->
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="skills.html" class="mobile-nav-link">Skills</a>
+      <a href="experience.html" class="mobile-nav-link">Experience</a>
+      <a href="projects.html" class="mobile-nav-link">Projects</a>
+      <a href="services.html" class="mobile-nav-link">Services</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
+
+  <div class="glow-spot" style="top: 10%; right: -5%;"></div>
+  <div class="glow-spot secondary" style="bottom: 10%; left: -5%;"></div>
+
+  <!-- Projects Main Hub -->
+  <main class="projects-hero container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Creative Portfolio</span>
+      <h1 class="mb-md text-gradient-white">Project Case Studies</h1>
+      <p class="lead">Exploring visual timelines, modular frontend codebases, and custom pre-production automations.</p>
+    </div>
+
+    <!-- Filters, Search and Sorting wrapper -->
+    <div class="filters-wrapper glass reveal">
+      <div class="filter-group">
+        <button class="filter-btn" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="video">Video Editing</button>
+        <button class="filter-btn" data-filter="ai">AI Creators</button>
+        <button class="filter-btn" data-filter="frontend">Web Development</button>
+        <button class="filter-btn" data-filter="graphic">Graphic & UI Design</button>
+      </div>
+      
+      <div class="search-sort-group">
+        <div class="search-input-wrapper">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="project-search" class="form-control" placeholder="Search projects or tools...">
+        </div>
+        
+        <select id="project-sort" class="form-control sort-select" aria-label="Sort projects">
+          <option value="newest">Newest</option>
+          <option value="alphabetical">Name</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Dynamic Projects Grid -->
+    <div class="grid grid-cols-1 grid-cols-md-2 grid-cols-lg-3 gap-xl mb-3xl" id="projects-grid"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="logo">VINAYAK<span>V.R.</span><div class="logo-dot"></div></a>
+          <p class="body-sm">Documentary Video Editor, Front-End Developer, and AI Creator based in Mohali, Punjab.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Profile</a>
+            <a href="skills.html">Skills Hub</a>
+            <a href="experience.html">Work Experience</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="projects.html">Portfolio Hub</a>
+            <a href="services.html">Offered Services</a>
+            <a href="resume.html">Review Resume</a>
+            <a href="contact.html">Send Message</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">&copy; 2026 Vinayak Vallabh Rai. All Rights Reserved.</div>
+        <div class="footer-meta"><span>Tejus Creative</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Scroll back to top">
+    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <script src="assets/js/data/projects.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

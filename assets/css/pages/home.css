@@ -1,0 +1,315 @@
+/* home.css - Styles specific to index.html matching old portfolio */
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero Background and Gradient Orbs */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent-gradient);
+  top: -200px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  bottom: -150px;
+  left: -100px;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  top: 50%;
+  left: 30%;
+  animation-delay: -10s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -30px) scale(1.05); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(20px, 30px) scale(1.02); }
+}
+
+/* Layout Grid for Hero */
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .hero .container {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-greeting {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-title span {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-typing-container {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+.hero-typing {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.hero-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.8em;
+  background-color: var(--accent-primary);
+  margin-left: 4px;
+  animation: blink 0.75s step-end infinite;
+}
+
+.hero-intro {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Floating profile morph image styling */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.image-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-full);
+  filter: blur(60px);
+  opacity: 0.25;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.25; }
+  50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.35; }
+}
+
+.profile-img-morph {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  animation: morph 8s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+  50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+}
+
+.floating-card {
+  position: absolute;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  z-index: 2;
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.floating-card svg {
+  color: var(--accent-primary);
+}
+
+.card-1 {
+  top: 20%;
+  left: -20px;
+  animation-delay: 0s;
+}
+
+.card-2 {
+  bottom: 20%;
+  right: -20px;
+  animation-delay: -3s;
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Mouse Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  animation: bounce 2s infinite;
+  z-index: 2;
+}
+
+.mouse {
+  width: 24px;
+  height: 40px;
+  border: 2px solid var(--text-muted);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  position: relative;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  animation: scrollWheel 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(12px); opacity: 0; }
+}
+
+@keyframes blink {
+  from, to { background-color: transparent }
+  50% { background-color: var(--accent-primary) }
+}
+
+/* Behind the Edit Timeline mini block */
+.mini-process-flow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .mini-process-flow {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.process-step {
+  text-align: center;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.process-step:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+}
+
+.process-number {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-xs);
+  display: block;
+}

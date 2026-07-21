@@ -1,0 +1,63 @@
+/* skills.css - Visual level progress bars and skills grid matching old portfolio */
+.skills-hero {
+  padding: 140px 0 60px;
+}
+
+.skill-list-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .skill-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.skill-level-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  margin-top: var(--space-xs);
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-level-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--accent-gradient);
+  width: 0;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.skill-info span {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* Learning roadmap block */
+.roadmap-step {
+  padding: var(--space-md);
+  border-left: 2px solid var(--accent-primary);
+  background: var(--bg-secondary);
+  margin-bottom: var(--space-md);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}

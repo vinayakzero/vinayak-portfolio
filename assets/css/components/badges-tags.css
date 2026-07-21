@@ -1,0 +1,59 @@
+/* badges-tags.css - Tag and Badge Styling */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* Status Badges */
+.badge-status-completed {
+  background-color: rgba(46, 204, 113, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.badge-status-in-progress {
+  background-color: rgba(241, 196, 15, 0.15);
+  color: var(--warning);
+  border: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+/* Tool/Tech Tags */
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: auto; /* push to bottom in card layouts */
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.tag:hover {
+  color: var(--white);
+  border-color: var(--accent-secondary);
+  background-color: var(--accent-secondary-glow);
+}
+
+/* Category Badge (e.g. video, frontend, ai) */
+.badge-category {
+  background-color: rgba(0, 153, 255, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(0, 153, 255, 0.25);
+}

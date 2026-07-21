@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Inquiries — Vinayak Vallabh Rai</title>
+  <meta name="description" content="Get in touch with Vinayak Vallabh Rai for video editing, front-end development, or AI consulting inquiries.">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages/contact.css">
+  <script>
+    const theme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper" id="preloader">
+    <div class="loader-container">
+      <div class="loader-logo">VINAYAK<span>V.R.</span></div>
+      <div class="loader-bar-bg">
+        <div class="loader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="./" class="logo">
+        VINAYAK<span>V.R.</span>
+        <div class="logo-dot"></div>
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <!-- Actions Block (Theme toggle + hamburger) -->
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="skills.html" class="mobile-nav-link">Skills</a>
+      <a href="experience.html" class="mobile-nav-link">Experience</a>
+      <a href="projects.html" class="mobile-nav-link">Projects</a>
+      <a href="services.html" class="mobile-nav-link">Services</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
+
+  <div class="glow-spot" style="top: 15%; right: -5%;"></div>
+  <div class="glow-spot secondary" style="bottom: 10%; left: -5%;"></div>
+
+  <!-- Contact Main Section -->
+  <main class="contact-hero container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Collaboration</span>
+      <h1 class="mb-md text-gradient-white">Start A Conversation</h1>
+      <p class="lead">Have a documentary project to edit, a frontend layout to engineer, or a creator workflow to automate? Let's connect.</p>
+    </div>
+
+    <!-- Contact Layout Grid -->
+    <div class="grid contact-layout reveal mb-3xl">
+      <!-- Info Column -->
+      <div class="contact-info-list">
+        <div class="glass p-lg flex flex-col gap-md" style="border-radius: var(--radius-lg);">
+          <div>
+            <span class="availability-tag mb-sm">
+              <div class="pulse-dot"></div>
+              Available For Work
+            </span>
+            <h3 class="mb-sm">Contact Info</h3>
+            <p class="body-sm text-secondary">Reach out directly or fill the contact inquiry form. I will respond within 24-48 business hours.</p>
+          </div>
+
+          <div class="contact-info-item mt-md">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div>
+              <strong>Location</strong>
+              <p class="body-sm">Mohali, Punjab, India</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div>
+              <strong>Email Address</strong>
+              <p class="body-sm">vinayak@example.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Column -->
+      <div class="glass p-lg" style="border-radius: var(--radius-lg);">
+        <h3 class="mb-lg">Send A Message</h3>
+        
+        <!-- Feedback Overlay -->
+        <div id="form-feedback" class="form-feedback"></div>
+        
+        <form id="contact-form" novalidate>
+          <div class="grid grid-cols-1 grid-cols-sm-2 gap-md">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Your name...">
+              <span class="form-error-msg"></span>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="Your email...">
+              <span class="form-error-msg"></span>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" id="subject" class="form-control" placeholder="Inquiry subject...">
+            <span class="form-error-msg"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">Message Details</label>
+            <textarea id="message" class="form-control" placeholder="Describe your project, timeline, and expectations..."></textarea>
+            <span class="form-error-msg"></span>
+          </div>
+          
+          <button type="submit" class="btn btn-primary mt-sm" style="width: 100%;">Send Inquiry Message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="logo">VINAYAK<span>V.R.</span><div class="logo-dot"></div></a>
+          <p class="body-sm">Documentary Video Editor, Front-End Developer, and AI Creator based in Mohali, Punjab.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Profile</a>
+            <a href="skills.html">Skills Hub</a>
+            <a href="experience.html">Work Experience</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="projects.html">Portfolio Hub</a>
+            <a href="services.html">Offered Services</a>
+            <a href="resume.html">Review Resume</a>
+            <a href="contact.html">Send Message</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">&copy; 2026 Vinayak Vallabh Rai. All Rights Reserved.</div>
+        <div class="footer-meta"><span>Tejus Creative</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Scroll back to top">
+    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    // Autofill subject from URL parameter if present
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const sub = params.get('subject');
+      if (sub) {
+        const subInput = document.getElementById('subject');
+        if (subInput) subInput.value = sub;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+/* services.css - Offerd creative services and FAQs accordion style */
+.services-hero {
+  padding: 140px 0 60px;
+}
+
+.service-card-expanded {
+  padding: var(--space-xl);
+  height: 100%;
+}
+
+.service-feature-list {
+  padding-left: var(--space-md);
+  margin-top: var(--space-md);
+  list-style-type: disc;
+}
+
+.service-feature-list li {
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+}
+
+/* FAQ accordion structures */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--glass-border);
+  padding: var(--space-md) 0;
+}
+
+.faq-question {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  padding-top: var(--space-sm);
+  color: var(--text-secondary);
+  display: none; /* toggle via JS or simple details structure */
+}

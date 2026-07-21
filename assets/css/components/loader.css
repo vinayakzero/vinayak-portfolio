@@ -1,0 +1,74 @@
+/* loader.css - Website loading screen animation matching old portfolio */
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-loader);
+  transition: opacity var(--transition-slow), visibility var(--transition-slow);
+}
+
+.loader-wrapper.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-container {
+  text-align: center;
+}
+
+.loader-logo {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: loaderFadeIn 0.8s forwards 0.2s;
+}
+
+.loader-logo span {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loader-bar-bg {
+  width: 160px;
+  height: 4px;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-full);
+  animation: loaderProgress 1.5s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+}
+
+/* Animations */
+@keyframes loaderFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loaderProgress {
+  to {
+    width: 100%;
+  }
+}

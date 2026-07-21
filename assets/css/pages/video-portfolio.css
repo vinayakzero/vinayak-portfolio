@@ -1,0 +1,79 @@
+/* video-portfolio.css - Cinema and documentary showcase layouts */
+.video-hero {
+  padding: 140px 0 60px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.video-play-card {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  cursor: pointer;
+}
+
+.video-play-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.video-play-card:hover img {
+  transform: scale(1.03);
+}
+
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 12, 16, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-normal);
+  z-index: 2;
+}
+
+.video-play-card:hover .video-play-overlay {
+  background: rgba(11, 12, 16, 0.6);
+}
+
+.play-btn-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-full);
+  background-color: var(--accent);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-elastic), box-shadow var(--transition-normal);
+  box-shadow: var(--shadow-glow-accent);
+}
+
+.video-play-card:hover .play-btn-circle {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px hsla(var(--accent-hsl), 0.6);
+}
+
+.video-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--space-lg);
+  background: linear-gradient(0deg, rgba(11,12,16,0.9) 0%, transparent 100%);
+  z-index: 3;
+}

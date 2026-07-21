@@ -1,0 +1,79 @@
+/* contact.css - Contact details page structures */
+.contact-hero {
+  padding: 140px 0 60px;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+}
+
+@media (min-width: 992px) {
+  .contact-layout {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.contact-info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--bg-card);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Availability Pulse Signal */
+.availability-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  background-color: rgba(46, 204, 113, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(46, 204, 113, 0.25);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--success);
+  border-radius: var(--radius-full);
+  animation: pulseDotAnim 1.6s infinite;
+}
+
+@keyframes pulseDotAnim {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.5);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(46, 204, 113, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+  }
+}

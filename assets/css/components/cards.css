@@ -1,0 +1,175 @@
+/* cards.css - Card styling matching old portfolio */
+.card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-primary);
+}
+
+/* Card Body & Formatting */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.card:hover .card-title {
+  color: var(--accent-primary);
+}
+
+.card-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* Card Media / Thumbnail */
+.card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-media img,
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .card-media img,
+.card:hover .card-media video {
+  transform: scale(1.08);
+}
+
+/* Accent top border cards */
+.card-accent-top {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-gradient);
+  z-index: 2;
+}
+
+/* Stats Card */
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  display: inline-block;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* Featured Card for Video Showcase (Horizontal Layout) */
+.featured-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
+  width: 100%;
+}
+
+.featured-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-primary);
+}
+
+.featured-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.featured-media video,
+.featured-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.featured-card:hover .featured-media video,
+.featured-card:hover .featured-media img {
+  transform: scale(1.05);
+}
+
+.featured-card:hover .video-hover-overlay,
+.card:hover .video-hover-overlay {
+  opacity: 0;
+}
+
+@media (min-width: 992px) {
+  .featured-card {
+    grid-template-columns: 1.2fr 1fr;
+  }
+  
+  .featured-media {
+    border-bottom: none;
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+  }
+}
+

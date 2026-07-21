@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Profile — Vinayak Vallabh Rai</title>
+  <meta name="description" content="Learn more about Vinayak Vallabh Rai, a documentary video editor, frontend developer and AI workflow creator based in Mohali, Punjab.">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages/about.css">
+  <script>
+    const theme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper" id="preloader">
+    <div class="loader-container">
+      <div class="loader-logo">VINAYAK<span>V.R.</span></div>
+      <div class="loader-bar-bg">
+        <div class="loader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="./" class="logo">
+        VINAYAK<span>V.R.</span>
+        <div class="logo-dot"></div>
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <!-- Actions Block (Theme toggle + hamburger) -->
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="skills.html" class="mobile-nav-link">Skills</a>
+      <a href="experience.html" class="mobile-nav-link">Experience</a>
+      <a href="projects.html" class="mobile-nav-link">Projects</a>
+      <a href="services.html" class="mobile-nav-link">Services</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
+
+  <div class="glow-spot" style="top: 15%; right: -5%;"></div>
+  <div class="glow-spot secondary" style="bottom: 10%; left: -5%;"></div>
+
+  <!-- About Hero & Profile -->
+  <main class="about-hero container">
+    <div class="profile-grid">
+      <!-- Image side -->
+      <div class="reveal-left">
+        <div class="profile-img-container" style="overflow: hidden; border-radius: var(--radius-xl); border: 1px solid var(--border-color); aspect-ratio: 1; width: 100%; max-width: 400px;">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Vinayak Vallabh Rai" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+      </div>
+      
+      <!-- Text side -->
+      <div class="reveal-right">
+        <span class="eyebrow">The Story So Far</span>
+        <h1 class="mb-md text-gradient-white">Documentary Editor, Developer, AI Creator</h1>
+        <p class="body-lg mb-md">
+          I am Vinayak, a creative generalist working with <strong>Tejus Creative</strong> in Mohali, Punjab. I focus on structural documentary edit pacing, lightweight interactive coding, and automated LLM prompt pipelines.
+        </p>
+        <p class="mb-md">
+          My creative journey began behind the timeline in video editing, learning how visual structure, pacing cuts, and sound layering establish emotional narrative truths. As my work expanded, I developed a passion for writing clean frontend code to build high-performance web showcases, and integrating generative AI tools to automate storyboard processes.
+        </p>
+        <p class="mb-md">
+          I believe that tools should serve the content—whether it is raw film logs, semantic HTML code, or LLM-driven pipelines. By keeping file structures lean and removing bloat, I focus on delivering speed and clean visual outcomes.
+        </p>
+        
+        <div class="philosophy-quote">
+          <p class="body-md">"A story should be as complex as necessary, but the system delivering it should be as simple and lightweight as possible."</p>
+        </div>
+        
+        <div class="btn-group mt-xl">
+          <a href="projects.html" class="btn btn-primary">Browse Projects</a>
+          <a href="resume.html" class="btn btn-secondary">Resume Details</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Strengths Preview -->
+  <section class="py-3xl section" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header center reveal">
+        <h2>Core Creative Philosophy</h2>
+        <p class="lead">How my multi-disciplinary background translates into project outcomes.</p>
+      </div>
+
+      <div class="grid grid-cols-1 grid-cols-md-3 gap-xl reveal">
+        <div class="card glass p-lg">
+          <h3 class="mb-sm text-gradient-accent">Pacing is Everything</h3>
+          <p>Whether editing a documentary sequence or developing web animations, timing defines the user experience. I build structural pacing into cuts and transitions to command attention naturally.</p>
+        </div>
+        <div class="card glass p-lg">
+          <h3 class="mb-sm" style="color: var(--accent-secondary);">Lean & Clean</h3>
+          <p>Bloated libraries slow down load times and make timelines chaotic. I write vanilla code and construct structured timelines to keep systems maintainable and lightweight.</p>
+        </div>
+        <div class="card glass p-lg">
+          <h3 class="mb-sm" style="color: var(--success);">Content-First Automation</h3>
+          <p>I view AI as a production accelerant, not a replacement. I use generative script integrations to automate drafting storyboards, leaving more room to focus on high-fidelity creative outputs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="py-3xl section text-center">
+    <div class="container reveal">
+      <h2 class="mb-md">Want to Learn More About My Career?</h2>
+      <p class="lead mb-xl" style="max-width: 600px; margin-left: auto; margin-right: auto;">Explore my professional timeline, education history, and current roles in detail.</p>
+      <div class="btn-group justify-center">
+        <a href="experience.html" class="btn btn-primary">View Experience Timeline</a>
+        <a href="contact.html" class="btn btn-secondary">Start a Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="logo">VINAYAK<span>V.R.</span><div class="logo-dot"></div></a>
+          <p class="body-sm">Documentary Video Editor, Front-End Developer, and AI Creator based in Mohali, Punjab.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Profile</a>
+            <a href="skills.html">Skills Hub</a>
+            <a href="experience.html">Work Experience</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="projects.html">Portfolio Hub</a>
+            <a href="services.html">Offered Services</a>
+            <a href="resume.html">Review Resume</a>
+            <a href="contact.html">Send Message</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">&copy; 2026 Vinayak Vallabh Rai. All Rights Reserved.</div>
+        <div class="footer-meta"><span>Tejus Creative</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Scroll back to top">
+    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
