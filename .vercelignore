@@ -1,0 +1,4 @@
+# .vercelignore
+assets/videos/
+.git/
+node_modules/
