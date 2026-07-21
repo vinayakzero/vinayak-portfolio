@@ -151,3 +151,9 @@
   background-color: var(--accent-glow);
   color: var(--accent);
 }
+
+/* Footer Brand Logo Scaling */
+.footer-brand .logo img {
+  height: 55px !important;
+}
+

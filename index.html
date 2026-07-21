@@ -34,7 +34,7 @@
   <!-- Preloader Screen -->
   <div class="loader-wrapper" id="preloader">
     <div class="loader-container">
-      <div class="loader-logo">VINAYAK<span>V.R.</span></div>
+      <div class="loader-logo"><img src="assets/images/logo-png.png" alt="Vinayak Logo" style="height: 60px; width: auto; object-fit: contain; display: inline-block;"></div>
       <div class="loader-bar-bg">
         <div class="loader-bar"></div>
       </div>
@@ -45,8 +45,7 @@
   <header class="header">
     <div class="container nav-container">
       <a href="./" class="logo">
-        VINAYAK<span>V.R.</span>
-        <div class="logo-dot"></div>
+        <img src="assets/images/logo-png.png" alt="Vinayak Logo" style="height: 45px; width: auto; object-fit: contain; display: block;">
       </a>
       
       <!-- Desktop Nav -->
@@ -178,60 +177,64 @@
       </div>
 
       <div class="flex flex-col gap-xl">
-        <!-- AI Project 1 -->
-        <div class="featured-card glass reveal">
-          <div class="featured-media">
-            <video src="assets/videos/ai-ugc.mp4" poster="assets/images/projects/ai-ugc.jpg" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
-            <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">AI Ad Campaign</span>
-            <div class="video-hover-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; transition: opacity var(--transition-normal); z-index: 1; pointer-events: none;">
-              <svg width="48" height="48" fill="#ffffff" viewBox="0 0 24 24" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
+        <!-- Row 1: Portrait Cards Grid -->
+        <div class="grid grid-cols-1 grid-cols-md-2 gap-xl">
+          <!-- AI Project 1 (Portrait) -->
+          <div class="card glass reveal flex flex-col">
+            <div class="card-media" style="aspect-ratio: 9/16; position: relative; overflow: hidden; background-color: var(--bg-secondary);">
+              <video src="assets/videos/ai-ugc.mp4" poster="assets/images/projects/ai-ugc.jpg" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+              <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">AI Ad Campaign</span>
+              <div class="video-hover-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; transition: opacity var(--transition-normal); z-index: 1; pointer-events: none;">
+                <svg width="48" height="48" fill="#ffffff" viewBox="0 0 24 24" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="eyebrow">AI Creator & Editor</span>
+              <h3 class="card-title">AI UGC Campaign Ad</h3>
+              <p class="card-text">A highly-converting social media UGC ad combining AI Voice Generation, AI Video clips, and edited in Filmora for maximum audience retention.</p>
+              <div class="tag-container mb-lg">
+                <span class="tag">AI Image Generation</span>
+                <span class="tag">AI Video Generation</span>
+                <span class="tag">Canva</span>
+                <span class="tag">Filmora</span>
+              </div>
+              <a href="project-detail.html?slug=ai-ugc-campaign-ad" class="btn btn-primary btn-sm">Read Case Details</a>
             </div>
           </div>
-          <div class="card-body">
-            <span class="eyebrow">AI Creator & Editor</span>
-            <h3 class="card-title">AI UGC Campaign Ad</h3>
-            <p class="card-text">A highly-converting social media UGC ad combining AI Voice Generation, AI Video clips, and edited in Filmora for maximum audience retention.</p>
-            <div class="tag-container mb-lg">
-              <span class="tag">AI Image Generation</span>
-              <span class="tag">AI Video Generation</span>
-              <span class="tag">Canva</span>
-              <span class="tag">Filmora</span>
+
+          <!-- AI Project 2 (Portrait) -->
+          <div class="card glass reveal flex flex-col">
+            <div class="card-media" style="aspect-ratio: 9/16; position: relative; overflow: hidden; background-color: var(--bg-secondary);">
+              <video src="assets/videos/ai-product.mp4" poster="assets/images/projects/ai-product.png" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+              <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">Product Promo</span>
+              <div class="video-hover-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; transition: opacity var(--transition-normal); z-index: 1; pointer-events: none;">
+                <svg width="48" height="48" fill="#ffffff" viewBox="0 0 24 24" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
             </div>
-            <a href="project-detail.html?slug=ai-ugc-campaign-ad" class="btn btn-primary btn-sm">Read Case Details</a>
+            <div class="card-body">
+              <span class="eyebrow">AI Animator & Designer</span>
+              <h3 class="card-title">AI Product Ad Loop</h3>
+              <p class="card-text">A visually stunning product promotional loop of a smartwatch generated using AI Animation and Canva designs.</p>
+              <div class="tag-container mb-lg">
+                <span class="tag">AI Image Generation</span>
+                <span class="tag">AI Video Generation</span>
+                <span class="tag">Canva</span>
+                <span class="tag">Adobe Photoshop</span>
+              </div>
+              <a href="project-detail.html?slug=ai-product-ad-loop" class="btn btn-primary btn-sm">Read Case Details</a>
+            </div>
           </div>
         </div>
 
-        <!-- AI Project 2 -->
+        <!-- Row 2: Landscape Card -->
+        <!-- AI Project 3 (Landscape) -->
         <div class="featured-card glass reveal">
           <div class="featured-media">
-            <video src="assets/videos/ai-product.mp4" poster="assets/images/projects/ai-product.jpg" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
-            <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">Product Promo</span>
-            <div class="video-hover-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; transition: opacity var(--transition-normal); z-index: 1; pointer-events: none;">
-              <svg width="48" height="48" fill="#ffffff" viewBox="0 0 24 24" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="card-body">
-            <span class="eyebrow">AI Animator & Designer</span>
-            <h3 class="card-title">AI Product Ad Loop</h3>
-            <p class="card-text">A visually stunning product promotional loop of a smartwatch generated using AI Animation and Canva designs.</p>
-            <div class="tag-container mb-lg">
-              <span class="tag">AI Image Generation</span>
-              <span class="tag">AI Video Generation</span>
-              <span class="tag">Canva</span>
-              <span class="tag">Adobe Photoshop</span>
-            </div>
-            <a href="project-detail.html?slug=ai-product-ad-loop" class="btn btn-primary btn-sm">Read Case Details</a>
-          </div>
-        </div>
-
-        <!-- AI Project 3 -->
-        <div class="featured-card glass reveal">
-          <div class="featured-media">
-            <video src="assets/videos/ai-storyboard.mp4" poster="assets/images/projects/ai-storyboard.jpg" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+            <video src="assets/videos/ai-storyboard.mp4" poster="assets/images/projects/ai-storyboard.png" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
             <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">Workflow Pipeline</span>
             <div class="video-hover-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; transition: opacity var(--transition-normal); z-index: 1; pointer-events: none;">
               <svg width="48" height="48" fill="#ffffff" viewBox="0 0 24 24" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
@@ -249,7 +252,7 @@
               <span class="tag">Figma</span>
               <span class="tag">Canva</span>
             </div>
-            <a href="project-detail.html?slug=ai-storyboarder" class="btn btn-primary btn-sm">Read Case Details</a>
+            <a href="project-detail.html?slug=ai-storyboard-pipeline" class="btn btn-primary btn-sm">Read Case Details</a>
           </div>
         </div>
       </div>
@@ -273,7 +276,7 @@
         <!-- Documentary Project 1 -->
         <div class="featured-card glass reveal">
           <div class="featured-media">
-            <video src="assets/videos/shadows-silence.mp4" poster="assets/images/projects/shadows-silence.jpg" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+            <video src="assets/videos/shadows-silence.mp4" poster="assets/images/projects/shadows-silence.png" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
             <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">Featured Documentary</span>
             <div class="video-hover-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; transition: opacity var(--transition-normal); z-index: 1; pointer-events: none;">
               <svg width="48" height="48" fill="#ffffff" viewBox="0 0 24 24" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
@@ -297,7 +300,7 @@
         <!-- Documentary Project 2 -->
         <div class="featured-card glass reveal">
           <div class="featured-media">
-            <video src="assets/videos/pulse-punjab.mp4" poster="assets/images/projects/pulse-punjab.jpg" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+            <video src="assets/videos/pulse-punjab.mp4" poster="assets/images/projects/pulse-punjab.png" loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
             <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">Folk History</span>
             <div class="video-hover-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; transition: opacity var(--transition-normal); z-index: 1; pointer-events: none;">
               <svg width="48" height="48" fill="#ffffff" viewBox="0 0 24 24" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
@@ -367,7 +370,7 @@
         <!-- Frontend Project 1 -->
         <div class="featured-card glass reveal">
           <div class="featured-media">
-            <img src="assets/images/projects/creative-layout.jpg" alt="Creative Layout Template" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <img src="assets/images/projects/creative-layout.webp" alt="Creative Layout Template" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             <span class="badge badge-status-in-progress" style="position: absolute; top: 16px; left: 16px; z-index: 2;">Active Build</span>
           </div>
           <div class="card-body">
@@ -387,7 +390,7 @@
         <!-- Frontend Project 2 -->
         <div class="featured-card glass reveal">
           <div class="featured-media">
-            <img src="assets/images/projects/wordpress-agency.jpg" alt="WordPress Agency Landing" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <img src="assets/images/projects/wordpress-agency.png" alt="WordPress Agency Landing" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">WordPress Site</span>
           </div>
           <div class="card-body">
@@ -423,7 +426,7 @@
         <!-- Graphic Project 1 -->
         <div class="featured-card glass reveal">
           <div class="featured-media">
-            <img src="assets/images/projects/graphic-dashboard.jpg" alt="Sleek SaaS Dashboard UI" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <img src="assets/images/projects/graphic-dashboard.webp" alt="Sleek SaaS Dashboard UI" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">UI/UX Mockup</span>
           </div>
           <div class="card-body">
@@ -441,7 +444,7 @@
         <!-- Graphic Project 2 -->
         <div class="featured-card glass reveal">
           <div class="featured-media">
-            <img src="assets/images/projects/graphic-brand.jpg" alt="Minimalist Brand Identity" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <img src="assets/images/projects/graphic-brand.webp" alt="Minimalist Brand Identity" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             <span class="badge badge-status-completed" style="position: absolute; top: 16px; left: 16px; z-index: 2;">Branding</span>
           </div>
           <div class="card-body">
@@ -566,9 +569,8 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="./" class="logo">
-            VINAYAK<span>V.R.</span>
-            <div class="logo-dot"></div>
-          </a>
+        <img src="assets/images/logo-png.png" alt="Vinayak Logo" style="height: 45px; width: auto; object-fit: contain; display: block;">
+      </a>
           <p class="body-sm">
             Documentary Video Editor, Front-End Developer, and AI Creator based in Mohali, Punjab. Combining story arcs with program code.
           </p>

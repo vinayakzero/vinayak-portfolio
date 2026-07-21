@@ -439,9 +439,17 @@ function initProjectDetail() {
   
   let mediaHtml = '';
   if (project.videoUrl) {
+    const isPortraitAI = (project.slug === 'ai-ugc-campaign-ad' || project.slug === 'ai-product-ad-loop');
+    const containerStyle = isPortraitAI 
+      ? 'position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 9/16; max-width: 380px; margin: 0 auto var(--space-2xl) auto;' 
+      : 'position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 16/9;';
+    const mediaStyle = isPortraitAI
+      ? 'width: 100%; height: 100%; object-fit: contain; background-color: #000; display: block;'
+      : 'width: 100%; height: 100%; object-fit: cover; display: block;';
+      
     mediaHtml = `
-      <div class="video-container mb-2xl glass" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 16/9;">
-        <video style="width: 100%; height: 100%; object-fit: cover; display: block;" src="${project.videoUrl}" poster="${project.thumbnail}" controls autoplay loop muted playsinline preload="metadata"></video>
+      <div class="video-container mb-2xl glass" style="${containerStyle}">
+        <video style="${mediaStyle}" src="${project.videoUrl}" poster="${project.thumbnail}" controls autoplay loop muted playsinline preload="metadata"></video>
       </div>
     `;
   } else if (project.thumbnail) {
