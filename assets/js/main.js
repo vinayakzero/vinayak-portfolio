@@ -1036,7 +1036,7 @@ function initSpaceBackground() {
     });
   }
 
-  // 2. Gradient Orbs Setup (3 global orbs + 3 section-specific orbs)
+  // 2. Gradient Orbs Setup (3 global orbs drifting infinitely)
   const orbs = [
     {
       baseX: 0.85,
@@ -1082,63 +1082,8 @@ function initSpaceBackground() {
       ampY: 60,
       floatX: 0,
       floatY: 0
-    },
-    {
-      sectionId: 'showcase-ai',
-      baseX: 0.12,
-      offsetYRatio: 0.3,
-      radius: 400,
-      depth: 0.3,
-      color0: 'rgba(139, 92, 246, 0.22)',
-      color1: 'rgba(139, 92, 246, 0.11)',
-      color2: 'rgba(139, 92, 246, 0.03)',
-      freqX: 0.18,
-      freqY: 0.22,
-      ampX: 50,
-      ampY: 30,
-      floatX: 0,
-      floatY: 0
-    },
-    {
-      sectionId: 'showcase-frontend',
-      baseX: 0.88,
-      offsetYRatio: 0.5,
-      radius: 450,
-      depth: 0.4,
-      color0: 'rgba(6, 182, 212, 0.20)',
-      color1: 'rgba(6, 182, 212, 0.09)',
-      color2: 'rgba(6, 182, 212, 0.02)',
-      freqX: 0.15,
-      freqY: 0.25,
-      ampX: 60,
-      ampY: 40,
-      floatX: 0,
-      floatY: 0
-    },
-    {
-      sectionId: 'collaborate-cta',
-      baseX: 0.5,
-      offsetYRatio: 0.5,
-      radius: 380,
-      depth: 0.3,
-      color0: 'rgba(236, 72, 153, 0.18)',
-      color1: 'rgba(236, 72, 153, 0.08)',
-      color2: 'rgba(236, 72, 153, 0.02)',
-      freqX: 0.2,
-      freqY: 0.15,
-      ampX: 40,
-      ampY: 50,
-      floatX: 0,
-      floatY: 0
     }
   ];
-
-  // Cache section elements and check if they exist on the current page
-  orbs.forEach(orb => {
-    if (orb.sectionId) {
-      orb.element = document.getElementById(orb.sectionId);
-    }
-  });
 
   let lastTime = performance.now();
 
@@ -1161,24 +1106,7 @@ function initSpaceBackground() {
       orb.floatY = Math.cos(time * orb.freqY) * orb.ampY + Math.sin(time * orb.freqY * 0.35) * (orb.ampY * 0.3);
 
       const x = orb.baseX * width + orb.floatX + renderState.mouseX * orb.depth * 100;
-      
-      let y;
-      if (orb.element) {
-        const rect = orb.element.getBoundingClientRect();
-        const absoluteTop = rect.top + window.scrollY;
-        const targetY = absoluteTop + rect.height * (orb.offsetYRatio || 0.5);
-        y = targetY - renderState.scrollY + orb.floatY + renderState.mouseY * orb.depth * 100;
-        
-        // Optimize: skip drawing if off-screen
-        if (y < -orb.radius || y > height + orb.radius) {
-          return;
-        }
-      } else if (orb.sectionId) {
-        // Section not present on the current page
-        return;
-      } else {
-        y = orb.baseY * height + orb.floatY - renderState.scrollY * orb.depth * 0.45 + renderState.mouseY * orb.depth * 100;
-      }
+      const y = orb.baseY * height + orb.floatY - renderState.scrollY * orb.depth * 0.45 + renderState.mouseY * orb.depth * 100;
 
       const grad = ctx.createRadialGradient(x, y, 0, x, y, orb.radius);
       grad.addColorStop(0, orb.color0);
