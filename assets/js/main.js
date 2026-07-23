@@ -903,6 +903,179 @@ function initCustomCursor() {
   requestAnimationFrame(updateOutlinePosition);
 }
 
+/* 9. Space-Like Animated Background Module */
+function initSpaceBackground() {
+  const canvas = document.getElementById('space-bg-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let width = canvas.width = canvas.offsetWidth;
+  let height = canvas.height = canvas.offsetHeight;
+
+  // Handle Resize
+  window.addEventListener('resize', () => {
+    width = canvas.width = canvas.offsetWidth;
+    height = canvas.height = canvas.offsetHeight;
+  });
+
+  // Track Input State with GSAP Easing
+  const input = {
+    mouseX: 0,
+    mouseY: 0,
+    scrollY: 0
+  };
+
+  // Interpolated State for Rendering
+  const renderState = {
+    mouseX: 0,
+    mouseY: 0,
+    scrollY: 0
+  };
+
+  // Listeners
+  window.addEventListener('mousemove', (e) => {
+    // Normalize coordinates around center (-0.5 to 0.5)
+    input.mouseX = (e.clientX / window.innerWidth) - 0.5;
+    input.mouseY = (e.clientY / window.innerHeight) - 0.5;
+    
+    gsap.to(renderState, {
+      mouseX: input.mouseX,
+      mouseY: input.mouseY,
+      duration: 1.0,
+      ease: "power2.out",
+      overwrite: "auto"
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    input.scrollY = window.scrollY;
+    
+    gsap.to(renderState, {
+      scrollY: input.scrollY,
+      duration: 0.6,
+      ease: "power1.out",
+      overwrite: "auto"
+    });
+  });
+
+  // 1. Particle Starfield Setup (150 particles)
+  const stars = [];
+  const starColors = ['255, 255, 255', '224, 242, 254', '192, 132, 252', '129, 140, 248'];
+  for (let i = 0; i < 150; i++) {
+    stars.push({
+      x: Math.random(), // percentage based
+      y: Math.random(),
+      size: Math.random() * 1.5 + 0.6, // 0.6px to 2.1px
+      depth: Math.random() * 0.8 + 0.1, // 0.1 to 0.9 parallax factor
+      baseAlpha: Math.random() * 0.6 + 0.3, // base brightness
+      pulseSpeed: Math.random() * 2 + 1, // frequency
+      pulsePhase: Math.random() * Math.PI * 2,
+      rgb: starColors[Math.floor(Math.random() * starColors.length)]
+    });
+  }
+
+  // 2. Gradient Orbs Setup (3 orbs)
+  const orbs = [
+    {
+      baseX: 0.85,
+      baseY: 0.15,
+      radius: 400,
+      color: 'rgba(99, 102, 241, 0.22)', // Indigo
+      depth: 0.35,
+      floatX: 0,
+      floatY: 0
+    },
+    {
+      baseX: 0.15,
+      baseY: 0.85,
+      radius: 350,
+      color: 'rgba(236, 72, 153, 0.18)', // Rose
+      depth: 0.55,
+      floatX: 0,
+      floatY: 0
+    },
+    {
+      baseX: 0.4,
+      baseY: 0.5,
+      radius: 280,
+      color: 'rgba(6, 182, 212, 0.18)', // Cyan
+      depth: 0.25,
+      floatX: 0,
+      floatY: 0
+    }
+  ];
+
+  // Animate Orbs Float offsets using GSAP
+  gsap.to(orbs[0], {
+    floatX: 50,
+    floatY: -30,
+    duration: 12,
+    yoyo: true,
+    repeat: -1,
+    ease: "sine.inOut"
+  });
+
+  gsap.to(orbs[1], {
+    floatX: -60,
+    floatY: 45,
+    duration: 15,
+    yoyo: true,
+    repeat: -1,
+    ease: "sine.inOut"
+  });
+
+  gsap.to(orbs[2], {
+    floatX: 40,
+    floatY: -50,
+    duration: 10,
+    yoyo: true,
+    repeat: -1,
+    ease: "sine.inOut"
+  });
+
+  // Render Loop using GSAP Ticker for smooth, throttled drawing
+  function render() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Draw Gradient Orbs
+    orbs.forEach(orb => {
+      const x = orb.baseX * width + orb.floatX + renderState.mouseX * orb.depth * 100;
+      const y = orb.baseY * height + orb.floatY - renderState.scrollY * orb.depth * 0.45 + renderState.mouseY * orb.depth * 100;
+
+      const grad = ctx.createRadialGradient(x, y, 0, x, y, orb.radius);
+      grad.addColorStop(0, orb.color);
+      grad.addColorStop(1, 'rgba(0,0,0,0)');
+
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(x, y, orb.radius, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // Draw Twinkling & Floating Stars
+    const time = Date.now() * 0.001;
+    stars.forEach(star => {
+      // Calculate coordinates with wrapping
+      let drawX = (star.x * width + renderState.mouseX * star.depth * 40) % width;
+      if (drawX < 0) drawX += width;
+      
+      let drawY = (star.y * height - renderState.scrollY * star.depth * 0.25 + renderState.mouseY * star.depth * 40) % height;
+      if (drawY < 0) drawY += height;
+
+      // Twinkle effect (sine wave fluctuation on opacity)
+      const alpha = star.baseAlpha * (0.6 + 0.4 * Math.sin(time * star.pulseSpeed + star.pulsePhase));
+
+      ctx.fillStyle = `rgba(${star.rgb}, ${alpha})`;
+      ctx.beginPath();
+      ctx.arc(drawX, drawY, star.size, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  // Bind to GSAP Ticker for high-efficiency frame rate execution
+  gsap.ticker.add(render);
+}
+
 /* DOM Bootstrap Trigger */
 document.addEventListener('DOMContentLoaded', () => {
   initCustomCursor();
@@ -911,6 +1084,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initMobileMenu();
   initBackToTop();
+  
+  if (document.getElementById('space-bg-canvas')) {
+    initSpaceBackground();
+  }
   
   if (document.querySelector('.hero-typing')) {
     initTypingEffect(
