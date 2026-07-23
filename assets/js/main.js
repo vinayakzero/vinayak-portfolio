@@ -905,17 +905,55 @@ function initCustomCursor() {
 
 /* 9. Space-Like Animated Background Module */
 function initSpaceBackground() {
-  const canvas = document.getElementById('space-bg-canvas');
-  if (!canvas) return;
+  // Inject style block if not already injected
+  if (!document.getElementById('space-bg-styles')) {
+    const style = document.createElement('style');
+    style.id = 'space-bg-styles';
+    style.textContent = `
+      .global-space-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        z-index: -2;
+        pointer-events: none;
+      }
+      #space-bg-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Inject canvas wrapper if not already injected
+  let bgWrapper = document.querySelector('.global-space-bg');
+  let canvas = document.getElementById('space-bg-canvas');
+  if (!bgWrapper) {
+    bgWrapper = document.createElement('div');
+    bgWrapper.className = 'global-space-bg';
+    canvas = document.createElement('canvas');
+    canvas.id = 'space-bg-canvas';
+    bgWrapper.appendChild(canvas);
+    document.body.prepend(bgWrapper);
+  }
 
   const ctx = canvas.getContext('2d');
-  let width = canvas.width = canvas.offsetWidth;
-  let height = canvas.height = canvas.offsetHeight;
+  
+  // Set dimensions based on viewport since it is fixed full-screen
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
 
   // Handle Resize
   window.addEventListener('resize', () => {
-    width = canvas.width = canvas.offsetWidth;
-    height = canvas.height = canvas.offsetHeight;
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
   });
 
   // Track Input State with GSAP Easing
@@ -1085,7 +1123,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initBackToTop();
   
-  if (document.getElementById('space-bg-canvas')) {
+  // Lazy-load GSAP globally if not present, then execute background
+  if (!window.gsap) {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+    script.onload = () => {
+      initSpaceBackground();
+    };
+    document.head.appendChild(script);
+  } else {
     initSpaceBackground();
   }
   
