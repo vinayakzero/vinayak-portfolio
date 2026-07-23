@@ -996,92 +996,126 @@ function initSpaceBackground() {
     });
   });
 
-  // 1. Particle Starfield Setup (150 particles)
+  // 1. Multi-layered Particle Starfield Setup (180 particles for a rich sky)
   const stars = [];
   const starColors = ['255, 255, 255', '224, 242, 254', '192, 132, 252', '129, 140, 248'];
-  for (let i = 0; i < 150; i++) {
+  
+  for (let i = 0; i < 180; i++) {
+    // Distribute stars across 3 depth layers for clean parallax
+    let depth, sizeRange, speedRange;
+    if (i < 100) {
+      // Background (slowest, smallest, dim)
+      depth = Math.random() * 0.2 + 0.05;
+      sizeRange = [0.4, 0.9];
+      speedRange = [-0.05, 0.05];
+    } else if (i < 150) {
+      // Midground (moderate speed, medium size)
+      depth = Math.random() * 0.3 + 0.3;
+      sizeRange = [1.0, 1.6];
+      speedRange = [-0.15, 0.15];
+    } else {
+      // Foreground (closest, fastest, largest, glowing)
+      depth = Math.random() * 0.35 + 0.65;
+      sizeRange = [1.7, 2.5];
+      speedRange = [-0.3, 0.3];
+    }
+
     stars.push({
-      x: Math.random(), // percentage based
+      x: Math.random(), // base relative position
       y: Math.random(),
-      size: Math.random() * 1.5 + 0.6, // 0.6px to 2.1px
-      depth: Math.random() * 0.8 + 0.1, // 0.1 to 0.9 parallax factor
-      baseAlpha: Math.random() * 0.6 + 0.3, // base brightness
-      pulseSpeed: Math.random() * 2 + 1, // frequency
+      size: Math.random() * (sizeRange[1] - sizeRange[0]) + sizeRange[0],
+      depth: depth,
+      driftX: 0,
+      driftY: 0,
+      speedX: Math.random() * (speedRange[1] - speedRange[0]) + speedRange[0],
+      speedY: Math.random() * (speedRange[1] - speedRange[0]) + speedRange[0],
+      baseAlpha: Math.random() * 0.5 + 0.35,
+      pulseSpeed: Math.random() * 1.5 + 0.5, // slower, more cinematic twinkling
       pulsePhase: Math.random() * Math.PI * 2,
       rgb: starColors[Math.floor(Math.random() * starColors.length)]
     });
   }
 
-  // 2. Gradient Orbs Setup (3 orbs)
+  // 2. Gradient Orbs Setup (3 orbs with custom noise frequencies and color stops)
   const orbs = [
     {
       baseX: 0.85,
       baseY: 0.15,
-      radius: 400,
-      color: 'rgba(99, 102, 241, 0.22)', // Indigo
+      radius: 480,
       depth: 0.35,
+      // Colors with multi-stop falloff (Indigo)
+      color0: 'rgba(99, 102, 241, 0.24)',
+      color1: 'rgba(99, 102, 241, 0.12)',
+      color2: 'rgba(99, 102, 241, 0.03)',
+      // Non-integer frequencies for Lissajous floating curves
+      freqX: 0.23,
+      freqY: 0.17,
+      ampX: 70,
+      ampY: 45,
       floatX: 0,
       floatY: 0
     },
     {
       baseX: 0.15,
       baseY: 0.85,
-      radius: 350,
-      color: 'rgba(236, 72, 153, 0.18)', // Rose
+      radius: 420,
       depth: 0.55,
+      // Colors with multi-stop falloff (Rose)
+      color0: 'rgba(236, 72, 153, 0.20)',
+      color1: 'rgba(236, 72, 153, 0.09)',
+      color2: 'rgba(236, 72, 153, 0.02)',
+      freqX: 0.14,
+      freqY: 0.29,
+      ampX: 60,
+      ampY: 75,
       floatX: 0,
       floatY: 0
     },
     {
-      baseX: 0.4,
+      baseX: 0.45,
       baseY: 0.5,
-      radius: 280,
-      color: 'rgba(6, 182, 212, 0.18)', // Cyan
+      radius: 340,
       depth: 0.25,
+      // Colors with multi-stop falloff (Cyan)
+      color0: 'rgba(6, 182, 212, 0.18)',
+      color1: 'rgba(6, 182, 212, 0.08)',
+      color2: 'rgba(6, 182, 212, 0.02)',
+      freqX: 0.31,
+      freqY: 0.11,
+      ampX: 45,
+      ampY: 60,
       floatX: 0,
       floatY: 0
     }
   ];
 
-  // Animate Orbs Float offsets using GSAP
-  gsap.to(orbs[0], {
-    floatX: 50,
-    floatY: -30,
-    duration: 12,
-    yoyo: true,
-    repeat: -1,
-    ease: "sine.inOut"
-  });
-
-  gsap.to(orbs[1], {
-    floatX: -60,
-    floatY: 45,
-    duration: 15,
-    yoyo: true,
-    repeat: -1,
-    ease: "sine.inOut"
-  });
-
-  gsap.to(orbs[2], {
-    floatX: 40,
-    floatY: -50,
-    duration: 10,
-    yoyo: true,
-    repeat: -1,
-    ease: "sine.inOut"
-  });
+  let lastTime = performance.now();
 
   // Render Loop using GSAP Ticker for smooth, throttled drawing
   function render() {
     ctx.clearRect(0, 0, width, height);
 
+    const currentTime = performance.now();
+    const dt = Math.min((currentTime - lastTime) * 0.06, 3.0); // Normalize time increments
+    lastTime = currentTime;
+    const time = currentTime * 0.001;
+
+    // Use additive screen blending for the glowing orbs
+    ctx.globalCompositeOperation = 'screen';
+
     // Draw Gradient Orbs
     orbs.forEach(orb => {
+      // Calculate continuous noise-like floating coordinates
+      orb.floatX = Math.sin(time * orb.freqX) * orb.ampX + Math.cos(time * orb.freqX * 0.45) * (orb.ampX * 0.3);
+      orb.floatY = Math.cos(time * orb.freqY) * orb.ampY + Math.sin(time * orb.freqY * 0.35) * (orb.ampY * 0.3);
+
       const x = orb.baseX * width + orb.floatX + renderState.mouseX * orb.depth * 100;
       const y = orb.baseY * height + orb.floatY - renderState.scrollY * orb.depth * 0.45 + renderState.mouseY * orb.depth * 100;
 
       const grad = ctx.createRadialGradient(x, y, 0, x, y, orb.radius);
-      grad.addColorStop(0, orb.color);
+      grad.addColorStop(0, orb.color0);
+      grad.addColorStop(0.35, orb.color1);
+      grad.addColorStop(0.7, orb.color2);
       grad.addColorStop(1, 'rgba(0,0,0,0)');
 
       ctx.fillStyle = grad;
@@ -1090,18 +1124,24 @@ function initSpaceBackground() {
       ctx.fill();
     });
 
+    // Reset composite operation to draw stars normally
+    ctx.globalCompositeOperation = 'source-over';
+
     // Draw Twinkling & Floating Stars
-    const time = Date.now() * 0.001;
     stars.forEach(star => {
+      // Update drift coordinates based on delta time
+      star.driftX += star.speedX * dt;
+      star.driftY += star.speedY * dt;
+
       // Calculate coordinates with wrapping
-      let drawX = (star.x * width + renderState.mouseX * star.depth * 40) % width;
+      let drawX = (star.x * width + star.driftX + renderState.mouseX * star.depth * 50) % width;
       if (drawX < 0) drawX += width;
       
-      let drawY = (star.y * height - renderState.scrollY * star.depth * 0.25 + renderState.mouseY * star.depth * 40) % height;
+      let drawY = (star.y * height + star.driftY - renderState.scrollY * star.depth * 0.3 + renderState.mouseY * star.depth * 50) % height;
       if (drawY < 0) drawY += height;
 
       // Twinkle effect (sine wave fluctuation on opacity)
-      const alpha = star.baseAlpha * (0.6 + 0.4 * Math.sin(time * star.pulseSpeed + star.pulsePhase));
+      const alpha = star.baseAlpha * (0.55 + 0.45 * Math.sin(time * star.pulseSpeed + star.pulsePhase));
 
       ctx.fillStyle = `rgba(${star.rgb}, ${alpha})`;
       ctx.beginPath();
